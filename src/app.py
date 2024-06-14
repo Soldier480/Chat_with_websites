@@ -4,8 +4,6 @@ from langchain_core.messages import AIMessage, HumanMessage
 from langchain_community.document_loaders import WebBaseLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import Chroma
-from langchain_openai import OpenAIEmbeddings, ChatOpenAI
-from sentence_transformers import SentenceTransformer
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain.chains import create_history_aware_retriever, create_retrieval_chain
@@ -41,7 +39,7 @@ def get_vectorstore_from_url(url):
 
         text_splitter = RecursiveCharacterTextSplitter()
         document_chunks = text_splitter.split_documents(document)
-         # Use SentenceTransformers for embedding
+         
         model =  HuggingFaceEmbeddings(
          model_name = "sentence-transformers/all-MiniLM-L6-v2")
 
