@@ -12,13 +12,10 @@ from langchain.chains.combine_documents import create_stuff_documents_chain
 from dotenv import load_dotenv
 
 load_dotenv()
-openai_api_key = os.getenv('OPENAI_API_KEY')
+
 HF_TOKEN=os.getenv('HF_TOKEN')
 CHROMA_PATH = "chroma"
 
-if not openai_api_key:
-    st.error("OPENAI API key is missing. Please check your .env file.")
-    st.stop()
 if not HF_TOKEN:
     st.error("HF TOKEN key is missing. Please check your .env file.")
     st.stop()
