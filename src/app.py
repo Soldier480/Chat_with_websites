@@ -97,7 +97,9 @@ if website_url is None or website_url=="":
     st.info("please enter a website url")
 
 else:
-    #session state
+    #session state :- 
+    # It is an object that does not change everytime the code reloads due to an event. to make chat_history persistent in the state of application,
+    # we have to use st.session_state, it persist the value after reload. The application reloads the code after every event.
     if "chat_history" not in st.session_state:
         st.session_state.chat_history= [
         AIMessage(content="Hello, I am an AI assistant. How can I help you?"),
