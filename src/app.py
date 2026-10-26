@@ -25,8 +25,8 @@ if not HF_TOKEN:
 
 def get_response(user_input):
     retriever_chain=get_context_retriever_chain(st.session_state.vector_store)
-    conversatin_rag_chain=get_conversational_rag_chain(retriever_chain)
-    response=conversatin_rag_chain.invoke({
+    conversation_rag_chain=get_conversational_rag_chain(retriever_chain)
+    response=conversation_rag_chain.invoke({
             "chat_history": st.session_state.chat_history,
             "input": user_query
         })
